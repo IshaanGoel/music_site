@@ -1,0 +1,27 @@
+{% extends 'music/base.html' %}
+
+{% block body %}
+	<div class="container">
+	    <div class="row">
+	        <div class="col-md-3">
+	            <h1>Album</h1>
+	            <div class="list-group">
+	            	<h2>Songs</h2>
+	            	{% for  song in album.song_set.all %}
+	                <li class="list-group-item">{{ song.song_title }}</li>
+	                {% endfor %}
+	            </div>
+	        </div>
+	        <div class="col-md-9">
+	            <div class="thumbnail">
+	                <img class="img-responsive" src="{{ album.album_logo.url }}">
+	                <div class="caption-full">
+	                    <h2><a>{{ album.album_title }}</a></h2>
+	                    <h3>{{ album.artist }}</h3>
+	                    <h4>{{ album.genre }}</h4>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+{% endblock %}
